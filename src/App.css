@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+.nav-container {
+  display: flex;
+  height: 100vh;
+  align-items: flex-start;
+  width: 100vh;
+  justify-content: center;
+  margin-left:auto;
+
+}
+.custom-link {
+    margin:20;
+    text-decoration: none;
+    color:white;
+    background-color:black;
+    padding: 5px;;
+    border-radius:  2mm;;
+    font-family:sans-serif;
+
+    
+}
