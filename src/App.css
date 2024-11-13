@@ -43,28 +43,26 @@
 
 .nav-container {
   display: flex;
-  position: absolute; /* Make the nav container absolute */
-  top: 10px; /* Position it near the top */
-  right: 10px; /* Position it near the right */
-  gap: 10px;
-
+  position: absolute; /* Fix navigation to top-right corner */
+  top: 10px; /* Distance from top */
+  right: 10px; /* Distance from right */
+  gap: 10px; /* Spacing between links */
 }
+
 .custom-link {
-  margin: 20px; /* Added units */
+  margin: 0;
   text-decoration: none;
   color: white;
-  background-color: black;
+
   padding: 5px;
   border-radius: 2mm;
   font-family: sans-serif;
-
-    
 }
 
 .route-container {
   display: flex;
-  justify-content: center; /* Centers the route content horizontally */
-  align-items: center; /* Centers the route content vertically */
-  height: 100vh; /* Takes up full viewport height */
-  width: 100%; /* Ensures full width */
+  align-items: flex-start;
+  margin-top:100px;
+  height: 100vh;
+  width: 100%;
 }

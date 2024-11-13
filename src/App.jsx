@@ -30,16 +30,17 @@ function App() {
 
   return (
    
-    <div >
-      <p style={{ margin: 0, position: "absolute", left: 0,marginLeft:"10px" }}>Hobby Hub </p>
-      <div className='nav-container'>
-        
-        <Link
-        to='/'
-        className='custom-link'>
-            Home
-        </Link>
-        <Link to="/create" className='custom-link'> Create a Post</Link>
+    <div>
+      <div style={{ backgroundColor: "#F88379", width: "100%",height: "60px", padding: "10px", position: "fixed", top: 0, left: 0, }}>
+        <h3 style={{ margin: 0, position: "absolute", left: 0,marginLeft:"10px",color:"white" }}>Hobby Hub </h3>
+        <div className='nav-container'>
+          <Link
+          to='/'
+          className='custom-link'>
+              Home
+          </Link>
+          <Link to="/create" className='custom-link'> Create a Post</Link>
+        </div>
       </div>
       <div className='route-container'>
         {element}
