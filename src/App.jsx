@@ -41,7 +41,9 @@ function App() {
         </Link>
         <Link to="/create" className='custom-link'> Create a Post</Link>
       </div>
-      {element}
+      <div className='route-container'>
+        {element}
+      </div>
     </div>
     
 
