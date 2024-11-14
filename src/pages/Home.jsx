@@ -29,7 +29,7 @@ const Home = () => {
           key={hobby.id}
           to={`/hobby/${hobby}`}
           state={{h:hobby}}
-          style={{textDecoration:"none" , }}
+          style={{textDecoration:"none" ,color:"black" }}
           >
               <HobbyListItem
               key={hobby.id}
