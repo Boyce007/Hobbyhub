@@ -1,16 +1,41 @@
-import React from 'react'
-import { useLocation,useParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { getTimeSince } from '../client'
 import { supabase } from '../client'
 
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 const HobbyInfo = () => {
-  const location = useLocation();
-  const hobby  = location.state?.h
-  const [hobbyLikes,setHobbyLikes] = useState(hobby.likes);
-  const likePost = async (e) => {
-    e.preventDefault();
+  const {id} = useParams();
+  const [hobby,setHobby] = useState({})
+  useEffect(()=>{
+    const fetchHobby = async()=> {
+      const {data} = await supabase
+      .from('Hobbies')
+      .select()
+      .eq('id',id)
+      console.log(data)
+      setHobby(data[0])
+      console.log(hobby)
+    
+    }
+    fetchHobby();
+  },[])
+
+  const fetchLikes = async()=> {
+    const {data} = await supabase
+    .from('Hobbies')
+    .select("likes")
+    .eq("id",hobby.id)
+    return  data[0].likes
+    
+  }
+
+  
+  
+  
+  // const [hobbyLikes,setHobbyLikes] =  useState(fetchLikes());
+  const likePost = async () => {
     const newlikes = hobbyLikes +1 
     setHobbyLikes(newlikes);
     await supabase
@@ -29,7 +54,7 @@ const HobbyInfo = () => {
       <button onClick={likePost}>
         <ThumbUpOffAltIcon />
       </button>
-      {hobbyLikes}
+      {/* {hobbyLikes} */}
 
 
     </div>

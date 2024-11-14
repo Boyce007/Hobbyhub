@@ -27,8 +27,9 @@ const Home = () => {
         hobbies.map(hobby=>(
           <Link
           key={hobby.id}
-          to={`/hobby/${hobby}`}
-          state={{h:hobby}}
+          to={`/hobby/${hobby.id}`}
+          
+          
           style={{textDecoration:"none" ,color:"black" }}
           >
               <HobbyListItem
