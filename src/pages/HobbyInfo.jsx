@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { getTimeSince } from '../client'
 import { supabase } from '../client'
-
+import './pages.css'
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 const HobbyInfo = () => {
   const {id} = useParams();
@@ -35,7 +35,6 @@ const HobbyInfo = () => {
   
   
   
-  // const [hobbyLikes,setHobbyLikes] =  useState(fetchLikes());
   const likePost = async () => {
     const newlikes = hobbyLikes +1 
     setHobbyLikes(newlikes);
@@ -52,10 +51,13 @@ const HobbyInfo = () => {
       <h2 >{hobby.title}</h2>
       <p>{hobby.content}</p>
       <img src={hobby.image} alt="test image" />
-      <button onClick={likePost}>
-        <ThumbUpOffAltIcon />
-      </button>
-      {hobbyLikes}
+      <div className='like-button-container'>
+        
+        <button style={{backgroundColor:"white",marginRight:"10px"}} onClick={likePost}>
+          <ThumbUpOffAltIcon />
+        </button>
+        <p>{hobbyLikes}</p>
+      </div>
 
 
     </div>
