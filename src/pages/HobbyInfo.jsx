@@ -82,18 +82,21 @@ const HobbyInfo = () => {
         </button>
         <p>{hobbyLikes}</p>
       </div>
-      <div style={{margin:"10px",backgroundColor:"lightgrey",display:'flex'}}>
-        {
-          comments.map(comment=>{
-            <p>Hello World</p>
-
-          })
-        }
+      <div style={{margin:"10px",backgroundColor:"lightgrey",display:'flex',flexDirection:"column",width:"100vh",alignItems:"flex-start",gap:"1px",fontSize:"12px"}}>
+            {
+            comments.map(comment=>(
+                <p key={comment} style={{marginLeft:"10px",marginBottom:"0px",marginTop:"5px"}} >
+                - {comment}
+              </p>
+            ))
+            }
+          
         <input
         type="text"
         placeholder='Leave a comment...'
         value={input}
         onChange={handleChange}
+        style={{width:"99vh"}}
          />
       </div>
 
