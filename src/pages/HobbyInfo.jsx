@@ -8,28 +8,29 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 const HobbyInfo = () => {
   const {id} = useParams();
   const [hobby,setHobby] = useState({})
+  const [hobbyLikes, setHobbyLikes] = useState(0); 
+
   useEffect(()=>{
     const fetchHobby = async()=> {
       const {data} = await supabase
       .from('Hobbies')
       .select()
       .eq('id',id)
-      console.log(data)
       setHobby(data[0])
-      console.log(hobby)
-    
+
+      const { data: likesData } = await supabase
+      .from('Hobbies')
+      .select("likes")
+      .eq("id", id);
+
+    if (likesData && likesData.length > 0) {
+      setHobbyLikes(likesData[0].likes);
     }
+    
+    };
     fetchHobby();
   },[])
-
-  const fetchLikes = async()=> {
-    const {data} = await supabase
-    .from('Hobbies')
-    .select("likes")
-    .eq("id",hobby.id)
-    return  data[0].likes
-    
-  }
+  
 
   
   
@@ -54,7 +55,7 @@ const HobbyInfo = () => {
       <button onClick={likePost}>
         <ThumbUpOffAltIcon />
       </button>
-      {/* {hobbyLikes} */}
+      {hobbyLikes}
 
 
     </div>
