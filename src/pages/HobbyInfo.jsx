@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { getTimeSince } from '../client'
 import { supabase } from '../client'
 import './pages.css'
@@ -9,7 +9,12 @@ const HobbyInfo = () => {
   const {id} = useParams();
   const [hobby,setHobby] = useState({})
   const [hobbyLikes, setHobbyLikes] = useState(0); 
+  const [comments,setComments] = useState([]);
+  const [input,setInput] = useState();
 
+  const handleChange = (e) => {
+    setInput(e.target.value)
+  }
   useEffect(()=>{
     const fetchHobby = async()=> {
       const {data} = await supabase
@@ -30,6 +35,25 @@ const HobbyInfo = () => {
     };
     fetchHobby();
   },[])
+
+  useEffect(()=> {
+    const fetchComments = async() => {
+      const {data} = await supabase
+      .from('Hobbies')
+      .select("comments")
+      .eq("id",id)
+      setComments(data[0].comments)
+    }
+    fetchComments();
+
+  },[comments])
+
+  // const leaveAComment  = async()=> {
+  //   const {data} = await supabase
+  //   .from("Hobbies")
+  //   .update
+
+  // }
   
 
   
@@ -52,11 +76,25 @@ const HobbyInfo = () => {
       <p>{hobby.content}</p>
       <img src={hobby.image} alt="test image" />
       <div className='like-button-container'>
-        
+
         <button style={{backgroundColor:"white",marginRight:"10px"}} onClick={likePost}>
           <ThumbUpOffAltIcon />
         </button>
         <p>{hobbyLikes}</p>
+      </div>
+      <div style={{margin:"10px",backgroundColor:"lightgrey",display:'flex'}}>
+        {
+          comments.map(comment=>{
+            <p>Hello World</p>
+
+          })
+        }
+        <input
+        type="text"
+        placeholder='Leave a comment...'
+        value={input}
+        onChange={handleChange}
+         />
       </div>
 
 

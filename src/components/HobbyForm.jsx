@@ -20,7 +20,7 @@ const HobbyForm = ({setHobbyValue,handleSubmit,submitButtonName}) => {
             <input placeholder='Image Url' type="text" id="image" name="image"  onChange={handleChange} /><br />
             <br />
 
-            <button type='submit' value="submit">{submitButtonName}</button>
+            <button style={{backgroundColor:"#F88379"}} type='submit' value="submit">{submitButtonName} </button>
         </form>
 
     </div>
