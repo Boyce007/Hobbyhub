@@ -2,14 +2,6 @@ import React from 'react'
 import { getTimeSince } from '../client';
 // eslint-disable-next-line react/prop-types
 const HobbyListItem = ({title,likes,timePosted}) => {
-  
-
-// Convert the difference to various units
-
-
-// Displaying the result
-
-
 
   return (
     
