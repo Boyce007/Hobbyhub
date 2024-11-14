@@ -33,9 +33,10 @@ const getTimeSince = () => {
     
 
     <div className='list-item-container'>
+      
         <p style={{color:"GrayText",fontSize:"15px"}}>{getTimeSince()}</p>
         <p style={{fontWeight:"bold",fontSize:"20px"}}>{title}</p>
-        <p>{likes}</p>
+        <p>{likes} Upvotes</p>
     </div>
   )
 }

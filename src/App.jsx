@@ -18,7 +18,7 @@ function App() {
       element:<CreateHobby/>
     },
     {
-      path:"/hobbyInfo",
+      path:"/hobby/:id",
       element:<HobbyInfo/>
     },
     {
@@ -39,7 +39,7 @@ function App() {
           className='custom-link'>
               Home
           </Link>
-          <Link to="/create" className='custom-link'> Create a Post</Link>
+          <Link to="/create" className='custom-link' style={{marginRight:'15px'}}> Create a Post</Link>
         </div>
       </div>
       <div className='route-container'>

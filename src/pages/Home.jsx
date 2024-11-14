@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect,useState } from 'react'
 import { supabase } from '../client'
 import HobbyListItem from '../components/HobbyListItem'
+import { Link } from 'react-router-dom'
 import './pages.css'
 const Home = () => {
     const [hobbies,setHobbies] = useState([])
@@ -24,12 +25,19 @@ const Home = () => {
       </div>
       {
         hobbies.map(hobby=>(
-            <HobbyListItem
-            key={hobby.id}
-            title={hobby.title}
-            likes={hobby.likes}
-            timePosted={hobby.created_at}
-            />
+          <Link
+          key={hobby.id}
+          to={`/hobby/${hobby}`}
+          state={{h:hobby}}
+          style={{textDecoration:"none" , }}
+          >
+              <HobbyListItem
+              key={hobby.id}
+              title={hobby.title}
+              likes={hobby.likes}
+              timePosted={hobby.created_at}
+              />
+            </Link>
         ))
         }
     </div>
