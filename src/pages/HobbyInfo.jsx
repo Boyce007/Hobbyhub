@@ -87,7 +87,7 @@ const HobbyInfo = () => {
         </button>
         <p>{hobbyLikes}</p>
       </div>
-      <div style={{margin:"10px",backgroundColor:"lightgrey",display:'flex',flexDirection:"column",width:"100vh",height:"13vh",alignItems:"flex-start",gap:"1px",fontSize:"12px"}}>
+      <div style={{margin:"10px",backgroundColor:"lightgrey",display:'flex',flexDirection:"column",width:"100vh",height:"13%",alignItems:"flex-start",gap:"1px",fontSize:"12px"}}>
             {
             postComments.map(comment=>(
                 <p key={comment} style={{marginLeft:"10px",marginBottom:"0px",marginTop:"5px"}} >
