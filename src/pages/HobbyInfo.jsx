@@ -92,12 +92,12 @@ const HobbyInfo = () => {
       </div>
       <div style={{margin:"10px",backgroundColor:"lightgrey",display:'flex',flexDirection:"column",width:"100vh",height:"13%",alignItems:"flex-start",gap:"1px",fontSize:"12px"}}>
             {
-            postComments.length == 0? <p>No comments</p>:
+            postComments ? 
             postComments.map((comment,index)=>(
                 <p key={index} style={{marginLeft:"10px",marginBottom:"0px",marginTop:"5px"}} >
                 - {comment}
               </p>
-            ))
+            )) : <p style={{margin:"10px"}} > No comments</p>
             }
           <form onSubmit={leaveAComment}>
             <input
