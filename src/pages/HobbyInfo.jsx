@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams,useNavigate } from 'react-router-dom'
 import { useState,useEffect } from 'react'
 import { getTimeSince } from '../client'
 import { supabase } from '../client'
@@ -8,6 +8,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CreateIcon from '@mui/icons-material/Create';
 const HobbyInfo = () => {
   const {id} = useParams();
+  const navigate = useNavigate();
   const [hobby,setHobby] = useState({})
   const [hobbyLikes, setHobbyLikes] = useState(0); 
   const [postComments,setPostComments] = useState([]);
@@ -74,8 +75,10 @@ const HobbyInfo = () => {
   return (
     <div className='info-container'>
       <div style={{display:"flex",flexDirection:"column",alignItems:"flex-start",marginBottom:"0px",marginTop:"0px" }} >
- 
+        <div style={{display:"flex"}}>
         <p>{getTimeSince(hobby.created_at)}</p>
+        <button style={{position:"relative",left: 525,backgroundColor:"#F88379"}} onClick={()=>navigate(`/hobby/${hobby.id}/update/`)}>Update Post</button>
+        </div>
         <h2 >{hobby.title}</h2>
         <p>{hobby.content}</p>
         <img src={hobby.image} alt="test image" />

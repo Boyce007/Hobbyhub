@@ -22,7 +22,7 @@ function App() {
       element:<HobbyInfo/>
     },
     {
-      path:'update',
+      path:'/hobby/:id/update',
       element:<UpdateHobby/>
     }
 
