@@ -48,7 +48,7 @@ const HobbyInfo = () => {
     }
     fetchComments();
 
-  },[postComments])
+  },[])
 
   const leaveAComment  = async(e)=> {
     e.preventDefault();
@@ -77,7 +77,7 @@ const HobbyInfo = () => {
       <div style={{display:"flex",flexDirection:"column",alignItems:"flex-start",marginBottom:"0px",marginTop:"0px" }} >
         <div style={{display:"flex"}}>
         <p>{getTimeSince(hobby.created_at)}</p>
-        <button style={{position:"relative",left: 525,backgroundColor:"#F88379"}} onClick={()=>navigate(`/hobby/${hobby.id}/update/`)}>Update Post</button>
+        <button style={{position:"relative",left: 500,backgroundColor:"#F88379"}} onClick={()=>navigate(`/hobby/${hobby.id}/update/`)}>Update Post</button>
         </div>
         <h2 >{hobby.title}</h2>
         <p>{hobby.content}</p>
@@ -92,8 +92,9 @@ const HobbyInfo = () => {
       </div>
       <div style={{margin:"10px",backgroundColor:"lightgrey",display:'flex',flexDirection:"column",width:"100vh",height:"13%",alignItems:"flex-start",gap:"1px",fontSize:"12px"}}>
             {
-            postComments.map(comment=>(
-                <p key={comment} style={{marginLeft:"10px",marginBottom:"0px",marginTop:"5px"}} >
+            postComments.length == 0? <p>No comments</p>:
+            postComments.map((comment,index)=>(
+                <p key={index} style={{marginLeft:"10px",marginBottom:"0px",marginTop:"5px"}} >
                 - {comment}
               </p>
             ))
