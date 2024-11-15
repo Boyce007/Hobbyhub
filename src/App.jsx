@@ -7,7 +7,11 @@ import HobbyInfo from './pages/HobbyInfo'
 import UpdateHobby from './pages/UpdateHobby'
 import { Link } from 'react-router-dom'
 function App() {
+  const [input,setInput] = useState("");
 
+  const handleChange = (e) => {
+    setInput(e.target.value)
+  }
   let element = useRoutes([
     {
       path:'/',
@@ -33,6 +37,14 @@ function App() {
     <div>
       <div style={{ backgroundColor: "#F88379", width: "100%",height: "60px", padding: "10px", position: "fixed", top: 0, left: 0, }}>
         <h3 style={{ margin: 0, position: "absolute", left: 0,marginLeft:"10px",color:"white" }}>Hobby Hub </h3>
+        <input
+         type="text"
+         placeholder='Search'
+         onChange={handleChange}
+         value={input}
+         sty
+
+           />
         <div className='nav-container'>
           <Link
           to='/'
