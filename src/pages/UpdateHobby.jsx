@@ -15,7 +15,8 @@ const UpdateHobby = () => {
         window.location = "/";
   }
   return (
-    <div>
+    <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+      <h1>Update A Post</h1>
       <HobbyForm
       handleSubmit={updatehobby}
       submitButtonName={"Update Post"}
