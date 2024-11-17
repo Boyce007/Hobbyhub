@@ -7,7 +7,7 @@ const Home = () => {
     const [hobbies,setHobbies] = useState([])
     const [input,setInput] = useState("");
     const [searchedPosts,setSearchedPosts] = useState([])
-    const [orderBy,setOrderBy] = useState("");
+    const [orderBy,setOrderBy] = useState("")
 
     const handleChange = (e) => {
       setInput(e.target.value)
@@ -24,9 +24,12 @@ const Home = () => {
     },[orderBy])
 
     const sortBy = async (attr) => {
-      setOrderBy(attr)
-      const {data} = await  supabase.from("Hobbies").select().order(orderBy, { ascending: false });
+      
+      const {data} = await  supabase.from("Hobbies").select().order(attr, { ascending: false });;
       setHobbies(data)
+      setOrderBy(attr)
+      
+      
 
     }
     
@@ -55,8 +58,8 @@ const Home = () => {
         </form>
       <div>
         Order By:
-        <button className='custom-button' >Likes</button>
-        <button  className='custom-button' >Newest</button>
+        <button onClick={()=>sortBy("likes")} className='custom-button' >Likes</button>
+        <button onClick={()=>sortBy("created_at")} className='custom-button' >Newest</button>
       </div>
         {
         input == ""? 
