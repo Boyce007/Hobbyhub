@@ -1,11 +1,11 @@
 .form-container {
-    width: 200px; 
-    height: 200px; 
+    width: 75vh; 
+    height: 45vh; 
     background-color: white; 
     border-radius: 10px; 
     display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     padding:20px
 

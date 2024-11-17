@@ -20,7 +20,9 @@ const CreateHobby = () => {
       handleSubmit={createHobby}
       submitButtonName={"Create Post"}
       setHobbyValue={setHobby}
+      
       />
+      
     </div>
   )
 }

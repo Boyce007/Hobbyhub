@@ -13,14 +13,15 @@ const HobbyForm = ({setHobbyValue,handleSubmit,submitButtonName}) => {
     return (
     <div className='form-container'>
         <form onSubmit={handleSubmit}>
-            <input placeholder='Title' type="text" id="tile" name="title"  onChange={handleChange} /><br />
+            <input placeholder='Title' type="text" id="tile" name="title"  onChange={handleChange} style={{width:"75vh"}} /><br />
             <br />
-            <textarea placeholder='Content (Optional)' type="textarea" id="content" name="content"  onChange={handleChange} /><br />
+            <textarea placeholder='Content (Optional)' type="textarea" id="content" name="content"  onChange={handleChange} style={{width:"75vh",height:"20vh"}} /><br />
             <br />
-            <input placeholder='Image Url' type="text" id="image" name="image"  onChange={handleChange} /><br />
+            <input placeholder='Image Url' type="text" id="image" name="image"  onChange={handleChange} style={{width:"75vh"}} /><br />
             <br />
-
-            <button style={{backgroundColor:"#F88379"}} type='submit' value="submit">{submitButtonName} </button>
+            
+            <button style={{backgroundColor:"#F88379",display:"flex"}} type='submit' value="submit">{submitButtonName} </button>
+            
         </form>
 
     </div>
