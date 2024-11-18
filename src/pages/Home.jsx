@@ -62,11 +62,11 @@ const Home = () => {
         <button onClick={()=>sortBy("created_at")} className='custom-button' >Newest</button>
       </div>
         {
-        input == ""? 
-        <HobbyList
-        list={hobbies} /> :
-        <HobbyList
-        list={searchedPosts} />
+          input == ""? 
+          <HobbyList
+          list={hobbies} /> :
+          <HobbyList
+          list={searchedPosts} />
         }
     </div>
   )
