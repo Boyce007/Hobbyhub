@@ -57,7 +57,8 @@ const HobbyInfo = () => {
       .update({comments:[...postComments,input]})
       .eq("id",id)
   }
-  
+
+ 
 
   
   

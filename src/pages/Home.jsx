@@ -24,30 +24,28 @@ const Home = () => {
     },[orderBy])
 
     const sortBy = async (attr) => {
-      
       const {data} = await  supabase.from("Hobbies").select().order(attr, { ascending: false });;
       setHobbies(data)
       setOrderBy(attr)
-      
-      
 
     }
     
-    const searchForPost = () => {
-      const result = hobbies.reduce((acc,hobby) => {
-        if (hobby.title.toLoweCase().includes(input.toLowerCase())) {
+    const searchForPost = async () => {
+      const result = await hobbies.reduce((acc,hobby) => {
+        if (hobby.title.toLowerCase().includes(input.toLowerCase())) {
           acc.push(hobby)
-
         }
+        return acc
       },[])
       setSearchedPosts(result);
     }
+    
 
 
 
   return (
     <div>
-      <form onSubmit={searchForPost}>
+      <form onSubmit={(e) => { e.preventDefault(); searchForPost();}}>
           <input
           type="text"
           placeholder='Search'
