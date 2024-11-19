@@ -61,13 +61,15 @@ const Home = () => {
         <button onClick={()=>sortBy("likes")} className='custom-button' >Likes</button>
         <button onClick={()=>sortBy("created_at")} className='custom-button' >Newest</button>
       </div>
-        {
-          input == ""? 
-          <HobbyList
-          list={hobbies} /> :
-          <HobbyList
-          list={searchedPosts} />
-        }
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+          {
+            input == ""? 
+            <HobbyList
+            list={hobbies} /> :
+            <HobbyList
+            list={searchedPosts} />
+          }
+        </div> 
     </div>
   )
 }

@@ -77,11 +77,11 @@ const HobbyInfo = () => {
       <div style={{display:"flex",flexDirection:"column",alignItems:"flex-start",marginBottom:"0px",marginTop:"0px" }} >
         <div style={{display:"flex"}}>
         <p>{getTimeSince(hobby.created_at)}</p>
-        <button style={{position:"relative",left: 500,backgroundColor:"#F88379"}} onClick={()=>navigate(`/hobby/${hobby.id}/update/`)}>Update Post</button>
+        <button style={{position:"relative",left: 750,backgroundColor:"#F88379"}} onClick={()=>navigate(`/hobby/${hobby.id}/update/`)}>Update Post</button>
         </div>
         <h2 >{hobby.title}</h2>
         <p>{hobby.content}</p>
-        <img src={hobby.image} alt="test image" />
+        <img src={hobby.image} alt="test image" style={{}}/>
         
       </div>
       <div className='like-button-container'>
