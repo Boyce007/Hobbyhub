@@ -35,7 +35,7 @@ const Home = () => {
     
     const searchForPost = () => {
       const result = hobbies.reduce((acc,hobby) => {
-        if (hobby.title.toLoweCase() == input.toLowerCase) {
+        if (hobby.title.toLoweCase().includes(input.toLowerCase())) {
           acc.push(hobby)
 
         }

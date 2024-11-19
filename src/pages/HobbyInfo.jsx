@@ -48,7 +48,7 @@ const HobbyInfo = () => {
     }
     fetchComments();
 
-  },[])
+  },[postComments])
 
   const leaveAComment  = async(e)=> {
     e.preventDefault();

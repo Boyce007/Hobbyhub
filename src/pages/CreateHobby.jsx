@@ -9,7 +9,7 @@ const CreateHobby = () => {
         e.preventDefault();
         await supabase
         .from("Hobbies")
-        .insert({title:hobby.title,content:hobby.title,image:hobby.image})
+        .insert({title:hobby.title,content:hobby.content,image:hobby.image})
         .select();
         window.location = "/";      
     }
